@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tic tac toe</title>
+    <link rel="icon" href="images/webIcon.png">
+</head>
+<body>
+    <h1>Tic-tac-toe</h1>
+    <div id="start-form">
+        <h3 id="option">For two players only:</h3>
+        <button id="start">Start</button>
+    </div>
+    <div>
+        <div class="inv players">
+            <div class="player">Player 1: ⭕</div>
+            <div class="player">Player 2: ❌</div>
+        </div>
+        <div  class="inv grid" id="grid"> <!--el id y la class igual a inv serán para que haga lo mismo que la imágen, aparecer una vez enviada la palabra -->
+            <div class="grid11 cell"></div> <!--va a pasar a la función 'A' y el elemento donde está el onclick, es decir, un botón -->
+            <div class="grid12 cell"></div>
+            <div class="grid13 cell"></div>
+            <div class="grid21 cell"></div>
+            <div class="grid22 cell"></div>
+            <div class="grid23 cell"></div>
+            <div class="grid31 cell"></div>
+            <div class="grid32 cell"></div>
+            <div class="grid33 cell"></div>
+        </div>
+        <div id="score-content">
+            <div class="inv players-score">
+                <div class="score-1">Player ⭕: 0</div>
+                <div class="score-2">Player ❌: 0</div>
+            </div>
+                <div class="buttons">
+                    <div id="clear" class="clear-div inv">
+                        <button class="clear-button">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="result">
+            <div class="player inv player1">¡Player ⭕ wins !</div>
+            <div class="player inv player2">¡Player ❌ wins!</div>
+            <div class="player inv tie">¡Tie!</div>
+        </div>
+        <div id="restart" class="restartButton inv" >
+            <button onclick="reset()">Reset</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,334 @@
+/*  Importa una fuente de google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+html{
+    cursor: url(images/lapiz_resized.png) 0 31, auto; /* la imagen debe tener unos 32x32px para que funcione */
+}
+
+body{
+    display: grid; /* si añadimos grid al body y luego le añadinos place-itms center se centrarán todos los elementos */
+    place-items: center;
+    text-align: center;
+    font-family: 'Patrick Hand', Arial, Helvetica, sans-serif;
+    background-color: #f7f4e1;
+    background-image:  linear-gradient(#cfcfcf 1px, transparent 1px), linear-gradient(90deg, #cfcfcf 1px, transparent 1px);
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 0;
+    min-width: 380px;
+}
+
+#start-form{
+    margin-bottom: 3rem;
+}
+
+/* Título */
+
+h1{
+    font-family: 'Patrick Hand', Arial, sans-serif;
+    font-size: 2.5rem;
+    margin: 20px;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+#grid{
+    gap: 0;
+    width: 100%; /* Ajusta según el tamaño deseado */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+#grid div{
+    aspect-ratio: 1 / 1;/* Hace que las celdas sean cuadradas */
+}
+
+
+/* Estilo de las letras acertadas, usamos un selector por id para el estilo de los slots donde van las letras acertadas */
+
+#slots h2{
+    font-family: 'Patrick Hand', Arial, sans-serif; 
+    font-size: 2.5rem;
+    color: #333;
+    margin: 0 5px;
+    padding-block: 20px;
+    display: inline-block;
+}
+
+
+/* Botón de reinicio */
+
+/* Botón de reinicio, con .restarButton button hace que se especifique que el estilo solo se aplicará a los botones dentro del contenedor con la clase restarButton
+esto es bueno para evitar conflictos si .restartButton contiene otros elementos que no sean botones */
+
+.restartButton button {
+    font-family: 'Patrick Hand', Arial, sans-serif;
+    font-size: 1.2rem;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 1.2rem;
+    cursor: url(images/ereaser_resized.png) 0 31, auto;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.restartButton button:hover {
+    background-color: #979e81;
+}
+/* inputs */
+
+input, #start, .clear-button { /* esto afecta a todos los imputs y al id randomWord */
+    font-family: 'Patrick Hand', Arial, sans-serif; 
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    border: none;
+    background: none;
+    color: #333;
+    cursor: url(images/lapiz_resized.png) 0 31, auto;
+
+}
+
+input[type='text']{
+    border-bottom: solid 2px #333;
+    text-align: center;
+}
+input[type='text']:focus{ /* esto elimina la linea del margen que googlee pone de forma predeterminada en los inputs de texto */
+    outline: none;
+    text-align: center;
+}
+
+input[type='submit']:hover, #start:hover, .clear-button:hover{ /* esta forma de selección es para que no se aplique a inputs que no tengan el tipo 'submit' */
+    cursor: url(images/marker_resized.png) 0 31, auto;
+}
+
+input[type='submit']:hover{
+    background-color: rgb(255, 248, 112, 0.663);
+}
+
+/*animación botón de empezar */
+#start {
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+}
+/* botón de palabra random */
+
+/* animación de subrrayado */
+#start::before {
+    z-index: -1; /* profundidad del subrrayado */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 248, 112, 0.663);
+    transition: left 0.4s ease-in-out;
+}
+
+#start:hover::before{
+    left: 0;
+}
+
+/*animación botón clear */
+
+.clear-button{
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 800;
+    border: 3px solid #333 ;
+    border-radius: 5px;
+}
+/* botón de palabra random */
+
+/* animación de subrrayado */
+.clear-button::before{
+    z-index: -1; /* profundidad del subrrayado */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 248, 112, 0.663);
+    transition: left 0.4s ease-in-out;
+}
+
+.clear-button:hover::before{
+    left: 0;
+}
+
+h3{
+    font-family: 'Patrick Hand', Arial, sans-serif; 
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #333;
+    margin: 0 8px;
+    padding-block: 20px;
+    display: inline-block;
+}
+
+/* color rojo de los slots que no se han acertado */
+
+.red {
+    color: red;
+}
+
+#option {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#score-content {
+    display: flex;
+    align-items: baseline; /* Centra los elementos horizontalmente */
+    justify-content: center;
+    margin-top: 0.7rem;
+}
+
+#clear{
+    position: relative; /* Asegura que no se desplace con valores absolutos */
+    margin: 0; /* Añade un poco de separación si es necesario */
+}
+
+.players{
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    
+}
+
+.player, .players-score{
+    font-family: 'Patrick Hand', Arial, sans-serif; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;  
+    margin-bottom: 10px;
+}
+
+.buttons{
+    display: inline-block;
+}
+
+.players-score {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos uniformemente */
+    letter-spacing: 0rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.score-1 {
+    margin-right: 1.6rem;
+}
+
+/* clase para que se pongan en invisible */
+.inv{
+    display: none !important; /*!important*/
+}
+
+.result{
+    margin-top: 1rem;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.grid12 {
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+}
+
+.grid13 {
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+}
+
+.grid11 {
+    border: 3px solid #333;
+    border-top: none;
+    border-left: none;
+}
+
+.grid21 {
+    border: 3px solid #333;
+    border-top: none;
+    border-left: none;
+}
+
+.grid22 {
+    border: 3px solid #333;
+    border-top: none;
+    border-inline: none;
+
+}
+
+.grid23 {
+    border: 3px solid #333;
+    border-top: none;
+    border-right: none;
+}
+
+.grid31 {
+    border: 3px solid #333;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+.grid32 {
+    border: 3px solid #333;
+    border-block: none;
+    border-right: none;
+}
+
+.grid33 {
+    border: 3px solid #333;
+    border-block: none;
+    border-right: none;
+}
+
+
+
+/* Efecto al hacer hover */
+.cell:hover {
+    cursor: url(images/lapiz_resized.png) 0 31, auto;
+}
+    
+
+/* Estilos para cuando un jugador marca su casilla */
+.cell.taken {
+    pointer-events: none; /* Evita que se haga clic nuevamente */
+}
+
+.disabled {
+    pointer-events: none; /* Evita que los divs sean clickeables */
+}
+
+
+
+
+
+@media only screen and (max-width:900px){ /* media query */
+
+    body{
+        overflow-y: hidden; /* capacidad de desplazarse en la pantalla, hidden no deja desplazarte */
+    }
+} 
+
