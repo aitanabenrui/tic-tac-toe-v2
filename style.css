@@ -331,5 +331,10 @@ h3{
     body{
         overflow-x: hidden; /* capacidad de desplazarse en la pantalla, hidden no deja desplazarte */
     }
+
+    #grid div{
+        aspect-ratio: 1/1;
+        min-width: 80px;
+    }
 } 
 
