@@ -44,7 +44,8 @@ h1{
 }
 
 #grid div{
-    aspect-ratio: 1 / 1;/* Hace que las celdas sean cuadradas */
+    width: 130px;
+    height: 130px;
 }
 
 
@@ -251,7 +252,7 @@ h3{
 .grid12 {
     border: 3px solid #333;
     border-top: none;
-    border-right: none;
+    border-inline: none;
 }
 
 .grid13 {
@@ -295,7 +296,7 @@ h3{
 .grid32 {
     border: 3px solid #333;
     border-block: none;
-    border-right: none;
+    border-inline: none;
 }
 
 .grid33 {
